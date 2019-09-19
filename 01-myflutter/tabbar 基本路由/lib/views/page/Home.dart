@@ -17,6 +17,7 @@ class _HomeState extends State<Home> {
           RaisedButton(
             child: Text("跳转分类"),
             onPressed: (){
+              //实现路由的跳转
               Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context)=>Category()
