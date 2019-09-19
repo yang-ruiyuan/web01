@@ -11,9 +11,9 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
-
+//初始化_currentIndex为0
   int _currentIndex = 0;
-
+//使用三个分类组件
   List _pageList = <Widget>[
     Home(),
     Category(),
@@ -26,6 +26,7 @@ class _TabsState extends State<Tabs> {
         title: Text("Flutter"),
       ),
       body: this._pageList[_currentIndex],
+      //主要组件实现TabBar
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: this._currentIndex,
         onTap: (int index) {
@@ -34,6 +35,7 @@ class _TabsState extends State<Tabs> {
             this._currentIndex = index;
           });
         },
+        
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
           BottomNavigationBarItem(
