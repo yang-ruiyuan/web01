@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- hash -->
+    <a href="#/home">首页</a>
+    <a href="#/about">关于</a>
+    <div id="box"></div>
+</body>
+<script>
+    // 当Html文档加载完毕后，会触发load事件 
+    window.addEventListener("load",()=>{
+        // 在浏览器中有一个api叫location 
+        console.log(location.hash)
+        // location是浏览器自带   也就是说是Hash路由的原理是location.hash 
+        box.innerHTML = location.hash.slice(1)  //slice把前一个字符串去掉
+    })
+    // hashchange  当hash改变时触发这个事件 
+    window.addEventListener("hashchange",()=>{
+        box.innerHTML = location.hash.slice(1)
+    })
+</script>
+</html>
+<!-- 
+//location  浏览器自己有的API  
+//当 load事件 发生的时候 我拿到hash的值 做一些事情 
+//当 hashchange  改变时候  又做一些事情  -->

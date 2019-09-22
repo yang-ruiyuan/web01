@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a onclick="go('/home')">首页</a>
+    <a onclick="go('/about')">关于</a>
+    <div id="box"></div>
+</body>
+<script>
+    function go(pathname){
+        //history 时H5里面的API  pushstate实现url中路由的跳转
+        history.pushState({},null,pathname)
+        box.innerHTML = pathname
+    }
+    // popstate事件   （）={}监听器 
+    window.addEventListener("popstate",()=>{
+        console.log(location.pathname)
+        go(location.pathname)
+    })
+</script>
+</html>
