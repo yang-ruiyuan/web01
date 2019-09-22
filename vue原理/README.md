@@ -1,5 +1,7 @@
 # revue
 
+## 此项目包裹 vue-router原理  vuex的原理
+
 ## Project setup
 ```
 npm install
