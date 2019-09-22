@@ -142,7 +142,7 @@ App.vue
 
 # store注入组件install方法
 
-解答问题：vuex的store是如何注入到组件中的？
+**解答问题：vuex的store是如何注入到组件中的？**
 
 首先使用vuex,需要安装插件：
 
@@ -170,6 +170,9 @@ Vue.mixin({
 ```
 
 可见，store注入 vue的实例组件的方式，是通过vue的 mixin机制，借助vue组件的生命周期 钩子 beforeCreate 完成的。即 每个vue组件实例化过程中，会在 beforeCreate 钩子前调用 vuexInit 方法。
+
+
+**解答问题：vuex的state和getters是如何映射到各个组件实例中响应式更新状态呢？**
 
 # new vue实现双向数据绑定：
 
@@ -206,6 +209,8 @@ Vue.mixin({
             })
         })
 ```
+
+**从上面源码，我们可以看出Vuex的state状态是响应式，是借助vue的data是响应式，将state存入vue实例组件的data中；Vuex的getters则是借助vue的计算属性computed实现数据实时监听。**
 
 # mutations实现
 
@@ -257,21 +262,11 @@ let mutations = options.mutations || {}
 
 # 原理总结：
 
+Vuex是通过全局注入store对象，来实现组件间的状态共享。在大型复杂的项目中（多级组件嵌套），需要实现一个组件更改某个数据，多个组件自动获取更改后的数据进行业务逻辑处理，这时候使用vuex比较合适。假如只是多个组件间传递数据，使用vuex未免有点大材小用，其实只用使用组件间常用的通信方法即可。
 
 
-如果有小伙伴想看看我写的[vuex源码]()，可以调试一下哦
+如果有小伙伴想看看我写的[vuex源码](https://github.com/yryworkspace/web01/tree/master/vue%E5%8E%9F%E7%90%86)，可以调试一下的
 
 参考链接：https://www.cnblogs.com/hjson/p/10500770.html
+面试常见：https://blog.csdn.net/xu838209490/article/details/80334283
 
-
-
-
-
-
-
-
-
-中间件和插件的区别  
-
-
-十六  颜色表示总结：
